@@ -17,15 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :hour %><br />
-    <%= f.number_field :hour %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+    <%= f.select :hour, [["4PM", "4"], ["5PM", "5"], ["6PM", "6"]] %>
   </div>
   <div class="field">
     <%= f.label :party_size %><br />
-    <%= f.number_field :party_size %>
+    <%= f.select :party_size, 2..20 %>
   </div>
   <div class="actions">
     <%= f.submit %>
