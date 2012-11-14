@@ -1,5 +1,7 @@
 Grill::Application.routes.draw do
 
+  resources :reservations
+
   get "login" => 'sessions#new', as: :sign_in
 
   post "sessions" => 'sessions#create' 
