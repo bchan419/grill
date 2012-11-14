@@ -1,5 +1,13 @@
 Grill::Application.routes.draw do
 
+  get "login" => 'sessions#new', as: :sign_in
+
+  post "sessions" => 'sessions#create' 
+
+  get "logout" => 'sessions#destroy', as: :sign_out
+
+  resources :users
+
   resources :items
 
   root to: 'pages#home'

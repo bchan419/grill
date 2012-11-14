@@ -7,6 +7,15 @@ body {
   width: 960px; 
 }
 
+p {
+  margin: 12px 0px;
+}
+.field {
+  margin: 12px 0px;
+}
+
+input[type="text"] { width: 200px;}
+label { margin-right: 12px;}
 .container { 
   background: black;
   padding: 24px;
