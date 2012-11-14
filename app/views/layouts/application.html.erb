@@ -31,6 +31,9 @@
     </header>
   
     <div class="content">
+      <% if flash[:notice] %>
+        <p id="notice"><%= flash[:notice] %></p>
+      <% end %>
       <%= yield %>
     </div>
     

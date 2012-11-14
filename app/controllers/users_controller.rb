@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+  
+  before_filter :require_user, :except => [:new, :create]
+  
+  def require_user
+    if session[:user_id] != params[:id].to_i
+      redirect_to root_url, notice: "You must sign in first."
+    end
+  end
+  
   # GET /users
   # GET /users.json
   def index
@@ -10,11 +19,11 @@ class UsersController < ApplicationController
     end
   end
 
+  
   # GET /users/1
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
