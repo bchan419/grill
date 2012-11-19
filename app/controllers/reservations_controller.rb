@@ -10,6 +10,8 @@ class ReservationsController < ApplicationController
   end
   
   def index
+    # TODO: Show only tonight's reservations
+    # Limit to 10 per page
     @reservations = Reservation.all
 
     respond_to do |format|
