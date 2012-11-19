@@ -11,7 +11,7 @@
     <th></th>
   </tr>
 
-<p><%= link_to "Next Page", reservations_url(:page => @page+1) %></p>
+<%= paginate @reservations %>
 
 <% @reservations.each do |reservation| %>
   <tr>
