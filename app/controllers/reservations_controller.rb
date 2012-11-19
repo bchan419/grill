@@ -11,8 +11,15 @@ class ReservationsController < ApplicationController
   
   def index
     # TODO: Show only tonight's reservations
-    # Limit to 10 per page
-    @reservations = Reservation.all
+    # Limit to 4 per page
+    @page = params[:page].to_i
+    
+    num_pages = Reservation.count / 4
+    if @page >= num_pages
+      @page = num_pages - 1
+    end
+    
+    @reservations = Reservation.offset(@page * 4).limit(4)
 
     respond_to do |format|
       format.html # index.html.erb
