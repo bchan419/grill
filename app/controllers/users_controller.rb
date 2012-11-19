@@ -53,6 +53,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        email = UserMailer.welcome(@user)
+        email.deliver
+        
         session[:user_id] = @user.id
         session[:order_id] = @user.orders.create.id
         format.html { redirect_to root_url, notice: 'User was successfully created.' }
