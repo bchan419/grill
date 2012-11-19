@@ -35,7 +35,6 @@ class ReservationsController < ApplicationController
   # GET /reservations/new.json
   def new
     @reservation = Reservation.new
-    @user = User.new
     
     respond_to do |format|
       format.html # new.html.erb
