@@ -54,7 +54,8 @@ class OrderItemsController < ApplicationController
     # TODO: Associate the current order to the @order_item
     # TODO: Associate the customer's desired menu item to the @order_item
     @order_item = OrderItem.new(params[:order_item])
-
+    @order_item.order_id = session[:order_id]
+    
     respond_to do |format|
       if @order_item.save
         format.html { redirect_to menu_url, notice: 'Item added to cart!' }
