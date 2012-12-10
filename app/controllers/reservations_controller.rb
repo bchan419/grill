@@ -11,7 +11,7 @@ class ReservationsController < ApplicationController
   
   def index
     @reservations = Reservation.where(:booked_for => Date.today)
-    @reservations = @reservations.order("created_at  desc").
+    @reservations = @reservations.order("created_at  desc")
     @reservations = @reservations.page(params[:page]).per(4)
 
     respond_to do |format|
