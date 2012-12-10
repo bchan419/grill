@@ -10,17 +10,20 @@
     <th>Amount</th>
   </thead>
   <tbody>
+    <% total = 0 %>
     <% @order.order_items.each do |order_item| %>
       <tr>
         <td><%= order_item.qty %></td>
         <td><%= order_item.item.name %></td>
         <td>$<%= order_item.qty * order_item.item.price %></td>
       </tr>
+      <% subtotal = order_item.qty * order_item.item.price %>
+      <% total += subtotal %>
     <% end %>
     <tr class="total">
       <td>TOTAL</td>
       <td></td>
-      <td>$<%= 0 %></td>
+      <td>$<%= total  %></td>
     </tr>
   </tbody>
 </table>
